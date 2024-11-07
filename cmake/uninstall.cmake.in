@@ -1,0 +1,15 @@
+if(NOT DEFINED CMAKE_INSTALL_PREFIX)
+    set(CMAKE_INSTALL_PREFIX "/usr/local")
+endif()
+
+# 列出需要卸载的目标文件和目录
+set(UNINSTALL_FILES
+    "/lib/libxixi.so"
+    "${CMAKE_INSTALL_PREFIX}/include/xixi" # 这里假设头文件在这个目录下
+)
+
+foreach(FILE ${UNINSTALL_FILES})
+    message(STATUS "Removing ${FILE}")
+    file(REMOVE_RECURSE ${FILE})
+endforeach()
+

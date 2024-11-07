@@ -1,0 +1,8 @@
+Package: xixi
+Version: 1.0.0
+Section: misc
+Priority: optional
+Architecture: amd64
+Depends: libc6 (>= 2.29)
+Maintainer: xixi_ <youremail@example.com>
+Description: C语言基础库，包含静态/动态栈 JSON 基本视频操作等基本接口
