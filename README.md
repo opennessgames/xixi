@@ -2,7 +2,7 @@
  * @Author: xixi_
  * @Date: 2024-11-03 19:34:53
  * @LastEditors: xixi_
- * @LastEditTime: 2024-11-03 20:26:16
+ * @LastEditTime: 2024-11-08 22:48:37
  * @FilePath: /FHMF/src/Modules/xixi/README.md
  * Copyright (c) 2023-2024 by xixi_ , All Rights Reserved. 
 -->
@@ -64,3 +64,4 @@ No external dependencies are required.
 
 ## License
 - **cJSON**: Distributed under the [MIT License](https://github.com/DaveGamble/cJSON)
+- **JSON.lua**: Distributed under the [CC](https://github.com/tiye/json-lua)
