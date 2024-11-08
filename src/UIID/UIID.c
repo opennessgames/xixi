@@ -2,9 +2,9 @@
  * @Author: xixi_
  * @Date: 2024-09-11 10:27:56
  * @LastEditors: xixi_
- * @LastEditTime: 2024-10-21 21:51:59
+ * @LastEditTime: 2024-11-08 23:41:50
  * @FilePath: /FHMF/src/Modules/xixi/src/UIID/UIID.c
- * Copyright (c) 2023-2024 by xixi_ , All Rights Reserved. 
+ * Copyright (c) 2023-2024 by xixi_ , All Rights Reserved.
  */
 /*
  *    FileName : FHDId.c
@@ -115,16 +115,7 @@ char *XIXI_MakeMixID(size_t Length)
     {
         /* 将每个字节的值取模36以获得0-35的范围 */
         ThisiD[i] = (ThisiD[i] % 36);
-        if (ThisiD[i] < 10)
-        {
-            /* 如果值小于10，则转换为'0'-'9' */
-            ThisiD[i] += '0';
-        }
-        else
-        {
-            /* 如果值大于或等于10，则转换为'A'-'Z' */
-            ThisiD[i] += 'A' - 10;
-        }
+        ThisiD[i] = (ThisiD[i] < 10) ? (ThisiD[i] + '0') : (ThisiD[i] + 'A' - 10);
     }
 
     /* 添加字符串终止符 */
