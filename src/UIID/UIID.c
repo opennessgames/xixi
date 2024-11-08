@@ -2,7 +2,7 @@
  * @Author: xixi_
  * @Date: 2024-09-11 10:27:56
  * @LastEditors: xixi_
- * @LastEditTime: 2024-11-08 23:41:50
+ * @LastEditTime: 2024-11-08 23:50:48
  * @FilePath: /FHMF/src/Modules/xixi/src/UIID/UIID.c
  * Copyright (c) 2023-2024 by xixi_ , All Rights Reserved.
  */
@@ -55,20 +55,15 @@ char *XIXI_MakeID()
     for (int i = 0; i < THIS_ID_LENGHT; i++)
     {
         int randomChar = rand() % 36; /* 随机获取一个 一共36种可能,0~9,A~Z */
-        if (randomChar < 10)
-        {
-            ThisiD[i] = '0' + randomChar; /* 数字0~9 */
-        }
-        else
-        {
-            /*
-                闫仔豪我就肏你妈,
-                直接拿筷子加上502胶水,
-                再加水泥,直接一刀捅你妈的13,没有爱慕的东西,
-                当你看到这段代码的时候隔着屏幕打我呀,肏你妈!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            */
-            ThisiD[i] = 'A' + (randomChar - 10); /* 字母A~Z */
-        }
+
+        /*
+            闫仔豪我就肏你妈,
+            直接拿筷子加上502胶水,
+            再加水泥,直接一刀捅你妈的13,没有爱慕的东西,
+            当你看到这段代码的时候隔着屏幕打我呀,肏你妈!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        */
+        /* 我不需要你的道歉,你的最好的道歉方式,就是和我一样痛苦 */
+        ThisiD[i] = (randomChar < 10) ? ('0' + randomChar) : ('A' + (randomChar - 10));
     }
     /* 添加分隔符号 */
     ThisiD[4] = '-';
