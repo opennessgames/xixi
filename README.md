@@ -2,7 +2,7 @@
  * @Author: xixi_
  * @Date: 2024-11-03 19:34:53
  * @LastEditors: xixi_
- * @LastEditTime: 2024-11-09 03:34:47
+ * @LastEditTime: 2024-11-09 03:39:54
  * @FilePath: /FHMF/src/Modules/xixi/README.md
  * Copyright (c) 2023-2024 by xixi_ , All Rights Reserved. 
 -->
@@ -49,12 +49,12 @@ No external dependencies are required.
 
 ## Quick Start
 
-### Example: Generating a UIID
+### Example: Generating a UUID
 1. **Include the header file:**
    ```c
    #include <xixi/UUID.h>
    ```
-2. **Use the following code to generate a UIID:**
+2. **Use the following code to generate a UUID:**
    ```c
    int main() {
        char *uuid = XIXI_GetUUID();
