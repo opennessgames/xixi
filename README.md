@@ -2,7 +2,7 @@
  * @Author: xixi_
  * @Date: 2024-11-03 19:34:53
  * @LastEditors: xixi_
- * @LastEditTime: 2024-11-10 21:39:12
+ * @LastEditTime: 2024-11-10 21:44:53
  * @FilePath: /FHMF/src/Modules/xixi/README.md
  * Copyright (c) 2023-2024 by xixi_ , All Rights Reserved. 
 -->
@@ -79,5 +79,5 @@ No external dependencies are required.
 
 - **cJSON**: Distributed under the [MIT License](https://opensource.org/licenses/MIT), as described in the [cJSON GitHub repository](https://github.com/DaveGamble/cJSON).
 - **JSON.lua**: Distributed under the [Creative Commons Attribution 3.0 Unported License (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/), as described in the [JSON.lua GitHub repository](https://github.com/tiye/json-lua).
-- **SQLite**: Distributed under the [MIT License](https://opensource.org/licenses/MIT), as described on the [SQLite website](https://www.sqlite.org/download.html).
+- **SQLite**: Distributed under the [MIT License](https://opensource.org/licenses/MIT), as described on the [SQLite website](https://www.sqlite.org/).
 - **miniz**: Distributed under the [zlib License](https://opensource.org/licenses/Zlib), as described in the [miniz GitHub repository](https://github.com/richgel999/miniz).
