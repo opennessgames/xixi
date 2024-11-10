@@ -2,7 +2,7 @@
  * @Author: xixi_
  * @Date: 2024-10-20 22:02:47
  * @LastEditors: xixi_
- * @LastEditTime: 2024-10-26 22:20:47
+ * @LastEditTime: 2024-11-10 20:58:53
  * @FilePath: /FHMF/src/Modules/xixi/src/DynamicStack/DynamicStack.h
  * Copyright (c) 2023-2024 by xixi_ , All Rights Reserved.
  */
@@ -65,6 +65,16 @@ extern "C"
      * @note 该动态栈支持自动扩容，请放心推入。
      */
     int XIXI_DynamicStackPush(ThisDynamicStack *ThisStack, const char *ThisVal);
+
+    /**
+     * @brief 在栈顶追加字符
+     *
+     * @param ThisStack 栈结构体
+     * @param ThisVal 要推入的字符
+     * @return  `1` 表示追加成功，返回 `0` 表示追加失败
+     * @note 你完全可以不用担心栈的容量
+     */
+    int XIXI_DynamicStackAppendVal(ThisDynamicStack *ThisStack, const char *ThisVal);
 
     /**
      * @brief 将字符弹出栈

@@ -2,8 +2,8 @@
  * @Author: xixi_
  * @Date: 2024-10-20 18:40:49
  * @LastEditors: xixi_
- * @LastEditTime: 2024-10-21 11:11:15
- * @FilePath: /FHMF/src/Modules/xixi/Stack/Stack.c
+ * @LastEditTime: 2024-11-10 21:26:49
+ * @FilePath: /FHMF/src/Modules/xixi/src/Stack/Stack.c
  * Copyright (c) 2023-2024 by xixi_ , All Rights Reserved.
  */
 
@@ -25,12 +25,41 @@ int XIXI_StackPush(ThisStack *ThisStack, const char *ThisVal)
     {
         return 0; /* 栈满,推入失败 */
     }
+    if (!ThisVal)
+    {
+        return 0; /* 空字符,推入失败 */
+    }
     char *ThisTmpVal = strdup(ThisVal);
     if (ThisTmpVal == NULL)
     {
         return 0; /* 内存分配失败,推入失败 */
     }
     ThisStack->ThisCharArr[++(ThisStack->ThisTop)] = ThisTmpVal;
+
+    return 1;
+}
+
+int XIXI_StackAppendVal(ThisStack *ThisStack, const char *ThisVal)
+{
+    if (XIXI_StackIsEmpty(ThisStack))
+    {
+        XIXI_StackPush(ThisStack, ThisVal); /* 如果栈为空，直接推入 */
+        return 1;
+    }
+    if (!ThisVal)
+    {
+        return 0;
+    }
+    char *TopStr = XIXI_StackPeek(ThisStack);                /* 获取栈顶当前字符串并扩展内存 */
+    size_t newLength = strlen(TopStr) + strlen(ThisVal) + 1; /* 新字符串的长度 */
+    char *NewChar = (char *)realloc(TopStr, newLength);      /* 重分配大小 */
+    if (NewChar == NULL)
+    {
+        return 0; /* 内存分配失败 */
+    }
+    strcat(NewChar, ThisVal);                             /* 连接字符串 */
+    ThisStack->ThisCharArr[ThisStack->ThisTop] = NewChar; /* 更新栈顶指针 */
+
     return 1;
 }
 
@@ -54,6 +83,11 @@ char *XIXI_StackPeek(ThisStack *ThisStack)
 
 void XIXI_StackPrint(ThisStack *ThisStack)
 {
+    if (XIXI_StackIsEmpty(ThisStack))
+    {
+        printf("Error: Stack is empty.\n");
+        return;
+    }
     for (int i = 0; i <= ThisStack->ThisTop; i++)
     {
         printf("%s\n", ThisStack->ThisCharArr[i]);

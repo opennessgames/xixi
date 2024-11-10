@@ -2,8 +2,8 @@
  * @Author: xixi_
  * @Date: 2024-10-20 22:02:55
  * @LastEditors: xixi_
- * @LastEditTime: 2024-10-21 00:47:38
- * @FilePath: /FHMF/src/Modules/xixi/DynamicStack/DynamicStack.c
+ * @LastEditTime: 2024-11-10 21:26:11
+ * @FilePath: /FHMF/src/Modules/xixi/src/DynamicStack/DynamicStack.c
  * Copyright (c) 2023-2024 by xixi_ , All Rights Reserved.
  */
 #include "DynamicStack.h"
@@ -47,12 +47,41 @@ int XIXI_DynamicStackPush(ThisDynamicStack *ThisStack, const char *ThisVal)
             return 0;
         }
     }
+    if (!ThisVal)
+    {
+        return 0;
+    }
     char *ThisTmpVal = strdup(ThisVal);
     if (ThisTmpVal == NULL)
     {
         return 0; /* 内存分配失败,推入失败 */
     }
     ThisStack->ThisCharArr[++(ThisStack->ThisTop)] = ThisTmpVal;
+    return 1;
+}
+
+int XIXI_DynamicStackAppendVal(ThisDynamicStack *ThisStack, const char *ThisVal)
+{
+    if (XIXI_DynamicStackIsEmpty(ThisStack))
+    {
+        XIXI_DynamicStackPush(ThisStack, ThisVal); /* 直接推入 */
+        return 1;
+    }
+    if (!ThisVal)
+    {
+        return 0;
+    }
+
+    char *TopStr = XIXI_DynamicStackPeek(ThisStack);         /* 获取栈顶当前字符串并扩展内存 */
+    size_t newLength = strlen(TopStr) + strlen(ThisVal) + 1; /* 新字符串的长度 */
+    char *NewChar = (char *)realloc(TopStr, newLength);      /* 重分配大小 */
+    if (NewChar == NULL)
+    {
+        return 0; /* 内存分配失败 */
+    }
+    strcat(NewChar, ThisVal);                             /* 连接字符串 */
+    ThisStack->ThisCharArr[ThisStack->ThisTop] = NewChar; /* 更新栈顶指针 */
+
     return 1;
 }
 
@@ -93,7 +122,7 @@ void XIXI_DynamicStackFree(ThisDynamicStack *ThisStack)
 
 void XIXI_DynamicStackPrint(ThisDynamicStack *ThisStack)
 {
-    if (ThisStack->ThisTop == -1)
+    if (XIXI_DynamicStackIsEmpty(ThisStack))
     {
         printf("Error: Stack is empty.\n");
         return;

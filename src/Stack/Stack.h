@@ -2,7 +2,7 @@
  * @Author: xixi_
  * @Date: 2024-10-20 18:40:55
  * @LastEditors: xixi_
- * @LastEditTime: 2024-10-26 22:21:07
+ * @LastEditTime: 2024-11-10 21:02:37
  * @FilePath: /FHMF/src/Modules/xixi/src/Stack/Stack.h
  * Copyright (c) 2023-2024 by xixi_ , All Rights Reserved.
  */
@@ -22,7 +22,8 @@ extern "C"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #define STACK_MAX_SIZE 100 /* 栈的最大容量 */
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /* 栈的特点:迟到早退 */
+/* 栈的特点:迟到早退(LIFO) */
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /* 基本结构 */
     typedef struct
     {
@@ -57,6 +58,16 @@ extern "C"
      * @note 请注意:栈的容量是有限的
      */
     int XIXI_StackPush(ThisStack *ThisStack, const char *ThisVal);
+
+    /**
+     * @brief 在栈顶追加字符
+     *
+     * @param ThisStack 栈结构体
+     * @param ThisVal 要推入的字符
+     * @return  `1` 表示追加成功，返回 `0` 表示追加失败
+     * @note 你可以不用担心栈的容量,栈满时也不会有任何问题
+     */
+    int XIXI_StackAppendVal(ThisStack *ThisStack, const char *ThisVal);
 
     /**
      * @brief 将字符弹出栈
