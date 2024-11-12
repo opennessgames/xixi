@@ -2,7 +2,7 @@
  * @Author: xixi_
  * @Date: 2024-10-20 18:40:49
  * @LastEditors: xixi_
- * @LastEditTime: 2024-11-10 21:26:49
+ * @LastEditTime: 2024-11-11 10:52:59
  * @FilePath: /FHMF/src/Modules/xixi/src/Stack/Stack.c
  * Copyright (c) 2023-2024 by xixi_ , All Rights Reserved.
  */
@@ -46,11 +46,11 @@ int XIXI_StackAppendVal(ThisStack *ThisStack, const char *ThisVal)
         XIXI_StackPush(ThisStack, ThisVal); /* 如果栈为空，直接推入 */
         return 1;
     }
-    if (!ThisVal)
+    char *TopStr = XIXI_StackPeek(ThisStack); /* 获取栈顶当前字符串并扩展内存 */
+    if (!ThisVal || !TopStr)
     {
         return 0;
     }
-    char *TopStr = XIXI_StackPeek(ThisStack);                /* 获取栈顶当前字符串并扩展内存 */
     size_t newLength = strlen(TopStr) + strlen(ThisVal) + 1; /* 新字符串的长度 */
     char *NewChar = (char *)realloc(TopStr, newLength);      /* 重分配大小 */
     if (NewChar == NULL)

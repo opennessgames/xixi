@@ -2,7 +2,7 @@
 Author: xixi_
 Date: 2024-10-27 17:48:03
 LastEditors: xixi_
-LastEditTime: 2024-11-08 22:02:11
+LastEditTime: 2024-11-11 11:58:33
 FilePath: /FHMF/src/Modules/xixi/src/Stack/Stack.lua
 Copyright (c) 2020-2024 by xixi_ , All Rights Reserved.
 --]]
@@ -29,6 +29,15 @@ end
 function Stack:Push(value)
     self.ThisTop = self.ThisTop + 1;
     self.ThisData[self.ThisTop] = value;
+end
+--------------------------------------------------------------------------------------------------------------------------
+--[[ 向栈顶追加元素 ]]
+function Stack:AppendVal(value)
+    if (self:IsEmpty()) then
+        self:Push(value); --[[ 栈空,直接推入 ]]
+        return;
+    end
+    self.ThisData[self.ThisTop] = self.ThisData[self.ThisTop] .. value; --[[ 栈非空,在末尾追加 ]]
 end
 --------------------------------------------------------------------------------------------------------------------------
 --[[ 弹出栈顶元素 ]]
@@ -60,6 +69,6 @@ end
 local Stack = Stack:new();
 Stack:Push("Fuck YanZiHao");
 Stack:Pop();
-Stack:Push("Fuck YanJianKang");
+Stack:AppendVal(" Fuck YanJianKang");
 Stack:Print();
 --------------------------------------------------------------------------------------------------------------------------

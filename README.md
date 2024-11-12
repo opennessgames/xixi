@@ -2,7 +2,7 @@
  * @Author: xixi_
  * @Date: 2024-11-03 19:34:53
  * @LastEditors: xixi_
- * @LastEditTime: 2024-11-10 21:44:53
+ * @LastEditTime: 2024-11-12 23:07:44
  * @FilePath: /FHMF/src/Modules/xixi/README.md
  * Copyright (c) 2023-2024 by xixi_ , All Rights Reserved. 
 -->
@@ -26,10 +26,26 @@ The **Xixi Library** is a versatile collection of utilities written in C, design
 - **Algebra**: Perform basic algebraic operations and calculations.
 
 ## Major updates 
+### 2024-11-8 updates
+1. **UUID** 
+   - Noun error, UIID changed to UUID
+   - Update APIs related to URLs,CRC32,JSON
 ### 2024-11-10 updates
 1. **stack and dynamic stack**
      - Add appendable character interfaces 
      - Fixed issue causing exceptions when pushing `NULL` onto the stack.
+### 2024-11-11 updates
+1. **UUID**
+   - `UUID.c`
+2. **Stack and Dynamic Stack**  
+   - Fixed issues with append interfaces (resolved during FHCalc development).  
+   - Added new interface for appending characters to the top of the stack in `Stack.lua`.  
+
+### 2024-11-12 updates
+1. **CRC32**  
+   - Added support for large files with a new interface, using buffered chunked reading to handle files that are too large for limited memory.  
+2. **cJSON**  
+   - Updated to the latest version.  
 
 ## Compilation and Installation
 
