@@ -2,7 +2,7 @@
  * @Author: xixi_
  * @Date: 2024-11-03 19:34:53
  * @LastEditors: xixi_
- * @LastEditTime: 2024-11-12 23:07:44
+ * @LastEditTime: 2024-11-13 10:45:55
  * @FilePath: /FHMF/src/Modules/xixi/README.md
  * Copyright (c) 2023-2024 by xixi_ , All Rights Reserved. 
 -->
@@ -29,6 +29,7 @@ The **Xixi Library** is a versatile collection of utilities written in C, design
 ### 2024-11-8 updates
 1. **UUID** 
    - Noun error, UIID changed to UUID
+2. **Update APIs**
    - Update APIs related to URLs,CRC32,JSON
 ### 2024-11-10 updates
 1. **stack and dynamic stack**
@@ -46,7 +47,9 @@ The **Xixi Library** is a versatile collection of utilities written in C, design
    - Added support for large files with a new interface, using buffered chunked reading to handle files that are too large for limited memory.  
 2. **cJSON**  
    - Updated to the latest version.  
-
+### 2024-11-13 updates
+1. **Update APIs**
+   - Update APIs related to Miniz,SQLite3
 ## Compilation and Installation
 
 ### Prerequisites
